@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabbed Interface with Bootstrap</title>
+  <title>Tabbed Interface with External HTML</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -24,16 +24,22 @@
 
   <div class="tab-content">
     <div id="tab1" class="tab-pane fade show active">
-      <h2>Tab 1 Content</h2>
-      <p>This is the content of Tab 1.</p>
+      <h2>Articles</h2>
+      <p>All my Articles are here.</p>
+      <!-- Include external HTML content for Tab 1 -->
+      <object type="text/html" data="article.html" style="width:100%; height:500px;"></object>
     </div>
     <div id="tab2" class="tab-pane fade">
-      <h2>Tab 2 Content</h2>
+      <h2>Tools4AI</h2>
       <p>This is the content of Tab 2.</p>
+      <!-- Include external HTML content for Tab 2 -->
+      <object type="text/html" data="tab2_content.html" style="width:100%; height:500px;"></object>
     </div>
     <div id="tab3" class="tab-pane fade">
-      <h2>Tab 3 Content</h2>
+      <h2>CookGPT</h2>
       <p>This is the content of Tab 3.</p>
+      <!-- Include external HTML content for Tab 3 -->
+      <object type="text/html" data="tab3_content.html" style="width:100%; height:500px;"></object>
     </div>
   </div>
 </div>
