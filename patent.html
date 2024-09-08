@@ -5,35 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patent Overview</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
         .patent-container {
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 20px;
             margin: 20px;
-            background-color: #f9f9f9;
-            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .patent-title {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            color: #0056b3;
         }
         .patent-section {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         .patent-section h2 {
-            font-size: 18px;
-            color: #333;
+            font-size: 20px;
+            color: #444;
+            margin-bottom: 10px;
         }
         .patent-section p {
             font-size: 16px;
             line-height: 1.6;
         }
+        .patent-list {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .highlight {
+            background-color: #e7f0ff;
+            border-left: 5px solid #0056b3;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="patent-container">
-        <div class="patent-title">Patent Overview: Real-Time Network Operations Validation System</div>
+        <div class="patent-title">Patent 1: Real-Time Network Operations Validation System</div>
         
         <div class="patent-section">
             <h2>Abstract:</h2>
@@ -48,7 +67,7 @@
         
         <div class="patent-section">
             <h2>Components:</h2>
-            <ul>
+            <ul class="patent-list">
                 <li><strong>Input/Output Modules:</strong> Facilitate seamless data exchange and interaction.</li>
                 <li><strong>Processors (CPU and GPU):</strong> Handle computational tasks, ensuring swift and accurate validation.</li>
                 <li><strong>Storage Devices:</strong> Securely store data and operational logs.</li>
@@ -69,6 +88,26 @@
         <div class="patent-section">
             <h2>Artificial Intelligence Integration:</h2>
             <p><strong>Enhanced Accuracy:</strong> Leverages an advanced AI model to boost the precision and efficiency of anomaly detection, adapting to evolving network conditions and operational complexities.</p>
+        </div>
+    </div>
+
+    <div class="patent-container">
+        <div class="patent-title">Patent 2: Cloud-Based Application Validation Suite</div>
+        
+        <div class="patent-section">
+            <h2>Description:</h2>
+            <p class="highlight">This patent unveils an innovative Cloud-Based Application Performance Suite that seamlessly integrates functionality testing, resiliency testing, chaos testing, and performance evaluation into a single, dynamic platform. Tailored for cloud environments, it offers real-time validation and a holistic view of application health.</p>
+        </div>
+        
+        <div class="patent-section">
+            <h2>Key Highlights:</h2>
+            <ul class="patent-list">
+                <li><strong>Unified Testing:</strong> Combines multiple testing modalities (functionality, performance, resiliency, chaos) into a unified suite, streamlining the validation process.</li>
+                <li><strong>Live Monitoring:</strong> Provides real-time insights and live feeds to external monitoring systems, enhancing visibility into application performance and immediate response to issues.</li>
+                <li><strong>Interactive Interface:</strong> Features an intuitive user interface for application providers to input testing parameters and interact with testing tools effectively.</li>
+                <li><strong>Modular Flexibility:</strong> Includes modular components for application testing, performance evaluation, and chaos testing, allowing for tailored use depending on specific needs.</li>
+                <li><strong>Cloud-Centric Design:</strong> Optimized for cloud computing environments, ensuring thorough validation and performance assessment of cloud-based applications.</li>
+            </ul>
         </div>
     </div>
 </body>
