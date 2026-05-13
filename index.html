@@ -3,163 +3,1299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishal Row Mysore - Patents & Innovations</title>
-
+    <title>Vishal Mysore - AI Innovator & Technology Leader</title>
+    <meta name="description" content="Vishal Mysore - Director at Citi, AI/ML Patent Holder, Open Source Contributor. Expert in Agentic AI, Cloud Platforms, and Chaos Engineering.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #3182ce;
+            --accent-gold: #c9a227;
+            --text: #2d3748;
+            --text-light: #718096;
+            --bg: #ffffff;
+            --bg-alt: #f7fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            box-sizing: border-box;
         }
-        header {
-            background-color: #2E86C1;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        header p {
-            font-size: 1.2em;
-            margin: 5px 0;
-        }
+
         .container {
             max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
-        .bio {
-            margin-bottom: 40px;
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .hero-title {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .hero-company {
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .expertise-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .expertise-card i {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+        }
+
+        .expertise-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .expertise-card p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 20px auto 0;
+        }
+
+        /* Patents Section */
+        .patents {
+            background: var(--bg-alt);
+        }
+
+        .patents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .patent-card {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .patent-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .patent-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .patent-badge.pending {
+            background: var(--accent);
+        }
+
+        .patent-number {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .patent-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .patent-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .patent-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .patent-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .patent-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card.featured {
+            grid-column: span 2;
+        }
+
+        .project-header {
+            padding: 24px 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 16px;
+        }
+
+        .project-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .project-content {
+            padding: 20px 24px 24px;
+        }
+
+        .project-content h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .project-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--bg-alt);
+            color: var(--text);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Articles Section */
+        .articles {
+            background: var(--bg-alt);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-platform {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .article-platform i {
+            font-size: 1.1rem;
+        }
+
+        .article-card h3 {
+            font-size: 1.05rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
             line-height: 1.6;
         }
-        .bio h2 {
-            color: #2E86C1;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 5px;
+
+        .article-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Speaking Section */
+        .speaking-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .speaking-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .speaking-content p {
+            opacity: 0.9;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .speaking-events {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .event {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .event-date {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .event h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .event p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--primary);
             margin-bottom: 20px;
         }
-        .patent {
-            margin-bottom: 30px;
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
-        .patent h2 {
-            color: #2E86C1;
-            font-size: 1.5em;
-            margin-bottom: 10px;
+
+        .about-highlights {
+            display: grid;
+            gap: 16px;
         }
-        .patent p, .patent ul {
-            margin: 5px 0;
-            line-height: 1.6;
+
+        .highlight {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
         }
-        ul {
-            padding-left: 20px;
+
+        .highlight-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-alt);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.25rem;
+            flex-shrink: 0;
         }
-        ul li {
-            list-style-type: disc;
+
+        .highlight h4 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 4px;
         }
-        footer {
-            background-color: #2E86C1;
-            color: #fff;
+
+        .highlight p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary);
+            color: white;
             text-align: center;
-            padding: 10px 0;
-            margin-top: 40px;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .contact p {
+            opacity: 0.9;
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .social-link {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            transform: translateY(-4px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 24px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card.featured {
+                grid-column: span 1;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .speaking-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .patents-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .speaking-card {
+                padding: 32px;
+            }
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Vishal Row Mysore</h1>
-        <p>Innovator and Technologist</p>
-    </header>
-
-    <div class="container">
-        <div class="bio">
-            <h2>About Me</h2>
-            <p>
-               With over 20 years of experience in software development and leadership, I have had the privilege of working across a diverse range of industries, from financial services to cutting-edge technology, driving impactful solutions with a focus on microservices, AI, DevOps, and chaos engineering.
-
-Currently, I serve as a Director at Citi, where I lead the engineering and validation of AI-powered cloud-native platforms for low-latency financial applications, leveraging Kubernetes/OpenShift and a variety of modern technologies. My expertise spans across DevOps, automation, environment management, and containerization, with a particular focus on optimizing production environments for resilience and efficiency. I spearhead the design of Zero Touch Deployments, Auto Checkouts, and advanced monitoring solutions, which significantly enhance delivery speed and reduce manual interventions.
-
-Previously, I held the position of Senior Vice President at Citi, where I led a globally distributed team in developing innovative solutions in the areas of chaos engineering, containerization, cloud migration, and DevOps automation. My team and I were responsible for ensuring the resilience of financial systems, optimizing performance, and integrating the latest advancements in machine learning and AI to transform operations.
-
-I have extensive experience in managing large teams, driving digital transformation, and mentoring the next generation of technology leaders. I am passionate about building robust, scalable systems and continuously learning and experimenting with new technologies to solve complex challenges.
-
-In my career, I’ve contributed to a wide array of initiatives, including developing stock record systems, creating machine learning prototypes for predictive analytics, and leading the development of online banking applications for CIBC. My deep technical knowledge is complemented by my ability to innovate, manage cross-functional teams, and lead with a focus on delivering measurable business value.
-
-When I’m not immersed in technology, I enjoy working on open-source projects, mentoring aspiring professionals, and exploring the latest trends in AI and machine learning.
-            </p>
-            <p>
-                <i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/vishalrow">LinkedIn</a> |
-                <i class="fab fa-github"></i> <a href="https://github.com/vishalmysore">GitHub</a> |
-                <i class="fab fa-medium"></i> <a href="https://medium.com/@visrow/">Medium</a>
-            </p>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="nav-logo">VM</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#patents">Patents</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu"><i class="fas fa-bars"></i></button>
         </div>
- <h2>Patents</h2>
-        <div class="patent">
-            <h2>Machine Learning System for Predicting Cascading Failures in Cloud Applications</h2>
-            <p><strong>Patent Number:</strong> US-20250053501-A1</p>
-            <p><strong>Date of Patent:</strong> February 13, 2025</p>
-            <p><strong>Abstract:</strong> This system utilizes machine learning to predict cascading failures in cloud-based applications, improving reliability and performance. The system includes an application model representing the dependencies between microservices and a machine learning algorithm that analyzes historical data to predict failure scenarios and timing for microservices. It identifies failure points and provides actionable recommendations for code revisions to mitigate failure risks.</p>
-            <p><a href="https://ppubs.uspto.gov/pubwebapp/authorize.html?redirect=print/pdfRedirectDownload/20250053501">View Patent</a></p>
-        </div>
+    </nav>
 
-        <div class="patent">
-            <h2>Predicting Cascading Failures and Generating Chaos Testing Scenarios</h2>
-            <p><strong>Patent Number:</strong> 20250053499</p>
-            <p><strong>Date of Patent:</strong> February 13, 2025</p>
-            <p><strong>Abstract:</strong> This system generates an application model representing dependencies among microservices and uses machine learning to identify failure points. It creates chaos testing scenarios targeting identified failure points and applies them to evaluate the application under disturbance. The system then generates code revision recommendations based on chaos testing outcomes, optimizing application resilience.</p>
-            <p><a href="https://ppubs.uspto.gov/pubwebapp/authorize.html?redirect=print/pdfRedirectDownload/20250053499">View Patent</a></p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Vishal Mysore</h1>
+                    <p class="hero-title">Director of Engineering | AI Innovator</p>
+                    <p class="hero-company">Citi - Capital Markets Technology</p>
+                    <p class="hero-description">
+                        Building the future of AI-powered enterprise systems. Leading cloud-native platform engineering,
+                        pioneering chaos engineering practices, and creating open-source tools that bridge AI with enterprise Java.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">21+</span>
+                            <span class="stat-label">US Patents</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">111</span>
+                            <span class="stat-label">Open Source Repos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="#patents" class="btn btn-primary"><i class="fas fa-lightbulb"></i> View Patents</a>
+                        <a href="https://github.com/vishalmysore" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="expertise-grid">
+                        <div class="expertise-card">
+                            <i class="fas fa-brain"></i>
+                            <h4>Agentic AI</h4>
+                            <p>Building autonomous AI agents</p>
+                        </div>
+                        <div class="expertise-card">
+                            <i class="fas fa-cloud"></i>
+                            <h4>Cloud Platforms</h4>
+                            <p>Kubernetes & OpenShift</p>
+                        </div>
+                        <div class="expertise-card">
+                            <i class="fas fa-vial"></i>
+                            <h4>Chaos Engineering</h4>
+                            <p>Resilience & testing</p>
+                        </div>
+                        <div class="expertise-card">
+                            <i class="fas fa-project-diagram"></i>
+                            <h4>Knowledge Graphs</h4>
+                            <p>LLM + Neo4j integration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="patent">
-            <h2>Validating Vector Constraints of Outputs Generated by Machine Learning Models</h2>
-            <p><strong>Patent Number:</strong> US-12198030-B1</p>
-            <p><strong>Date of Patent:</strong> January 14, 2025</p>
-            <p><strong>Abstract:</strong> This technology empowers real-time adaptation for detecting and automatically correcting issues such as bias, harmful content, and intellectual property violations in outputs generated by AI models. It uses dynamic regulation alignment to ensure compliance with global governance frameworks, improving fairness, inclusivity, and scalability in machine learning models.</p>
-            <p><a href="https://ppubs.uspto.gov/pubwebapp/authorize.html?redirect=print/pdfRedirectDownload/12198030">View Patent</a></p>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Engineering Leader & AI Innovator</h3>
+                    <p>
+                        With over 20 years in software development and technology leadership, I specialize in
+                        designing AI-powered cloud-native platforms for low-latency financial applications at Citi.
+                        My work spans DevOps automation, chaos engineering, and the development of intelligent systems
+                        that enhance enterprise resilience and efficiency.
+                    </p>
+                    <p>
+                        I'm passionate about bridging the gap between cutting-edge AI research and enterprise Java applications.
+                        My open-source project Tools4AI demonstrates this vision, providing a 100% Java framework for building
+                        autonomous AI agents that integrate seamlessly with existing enterprise infrastructure.
+                    </p>
+                    <p>
+                        Through technical writing on Medium and LinkedIn, I actively contribute to the AI community
+                        by sharing practical knowledge on LLMs, agentic AI, and enterprise Java integration strategies.
+                    </p>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight">
+                        <div class="highlight-icon"><i class="fas fa-award"></i></div>
+                        <div>
+                            <h4>21+ US Patents</h4>
+                            <p>AI compliance, chaos testing, ML systems</p>
+                        </div>
+                    </div>
+                    <div class="highlight">
+                        <div class="highlight-icon"><i class="fas fa-code-branch"></i></div>
+                        <div>
+                            <h4>Open Source Leader</h4>
+                            <p>111 repositories, 350+ GitHub stars</p>
+                        </div>
+                    </div>
+                    <div class="highlight">
+                        <div class="highlight-icon"><i class="fas fa-pen-fancy"></i></div>
+                        <div>
+                            <h4>Technical Writer</h4>
+                            <p>Medium & LinkedIn publications</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="patent">
-            <h2>Application Functionality Testing, Resiliency Testing, Chaos Testing, and Performance Testing in a Single Platform</h2>
-            <p><strong>Patent Number:</strong> 11,847,046</p>
-            <p><strong>Date of Patent:</strong> December 19, 2023</p>
-            <p><strong>Abstract:</strong> A network system that provides testing, resiliency, chaos, and performance testing in a single tool that operates on cloud-based applications in real time. The system combines various validations into a single package, offering modules for functional validations, performance testing, and mechanisms for resiliency and chaos testing.</p>
-            <p><a href="https://patents.justia.com/patent/11847046">View Patent</a></p>
-        </div>
+    </section>
 
-        <div class="patent">
-            <h2>Detecting Network Operation Validation Anomalies in Conglomerate-Application-Based Ecosystems Systems and Methods</h2>
-            <p><strong>Patent Number:</strong> 11,924,027</p>
-            <p><strong>Date of Patent:</strong> March 5, 2024</p>
-            <p><strong>Abstract:</strong> Systems and methods for reducing wasted computational resources by detecting network operation validation anomalies in conglomerate-application-based ecosystems. The system provides a first network operation to a software application, receives a message associated with the processing, performs a validation process, and prevents invalid operations from propagating.</p>
-            <p><a href="https://patents.justia.com/patent/11924027">View Patent</a></p>
-        </div>
+    <!-- Patents Section -->
+    <section id="patents" class="patents">
+        <div class="container">
+            <div class="section-header">
+                <h2>Patents & Innovations</h2>
+                <p>Pioneering solutions in AI governance, chaos engineering, and cloud resilience</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="patents-grid">
+                <!-- 2026 Patents -->
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,621,253</p>
+                    <h3>Allocating Resources Among Autonomous AI Agents Within a Distributed Computational Network</h3>
+                    <p class="patent-date">May 5, 2026</p>
+                    <p>Automatically evaluate, select, and coordinate AI-based agents for collaborative distributed task execution based on dynamic multi-attribute scoring and resource allocation models.</p>
+                    <a href="https://patents.justia.com/patent/12621253" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
 
-        <div class="patent">
-            <h2>Dynamically Validating AI Applications for Compliance</h2>
-            <p><strong>Patent Number:</strong> 12,111,754</p>
-            <p><strong>Date of Patent:</strong> October 8, 2024</p>
-            <p><strong>Abstract:</strong> Technology that evaluates the compliance of an AI application with predefined guidelines. It constructs test cases with prompts, expected outcomes, and explanations, supplies the prompts to the AI application, receives outcomes and explanations, compares them with expected results, and generates a compliance indicator.</p>
-            <p><a href="https://patents.justia.com/patent/12111754">View Patent</a></p>
-        </div>
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,602,418</p>
+                    <h3>Intelligent Query Decomposition, Specialized Model Routing, and Hierarchical Aggregation</h3>
+                    <p class="patent-date">April 14, 2026</p>
+                    <p>Decomposes queries into sub-queries, routes to specialized models, detects conflicts among outputs, and generates aggregated responses with conflict resolution.</p>
+                    <a href="https://patents.justia.com/patent/12602418" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
 
-        <div class="patent">
-            <h2>Detecting and Mitigating Network Operation Validation Anomalies in Conglomerate-Application-Based Ecosystems and Systems and Methods of the Same</h2>
-            <p><strong>Patent Number:</strong> 12,184,480</p>
-            <p><strong>Date of Patent:</strong> December 31, 2024</p>
-            <p><strong>Abstract:</strong> Systems and methods for improving the efficiency and accuracy of network operation validation anomaly detection in conglomerate-application-based ecosystems. The platform provides a network operation to a software application, generates a communication map, determines a validation status, and executes corrective actions to address anomalies.</p>
-            <p><a href="https://patents.justia.com/patent/12184480">View Patent</a></p>
-        </div>
-    </div>
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,596,738</p>
+                    <h3>Explainable Large Language Model Routing with Immutable Audit Trails</h3>
+                    <p class="patent-date">April 7, 2026</p>
+                    <p>Selects LLMs based on complexity, domain, and compliance parameters while generating human-readable explanations and tamper-evident audit trails.</p>
+                    <a href="https://patents.justia.com/patent/12596738" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
 
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,592,897</p>
+                    <h3>Detecting Anomalous Resource Distribution in Distributed AI-Based Agent Networks</h3>
+                    <p class="patent-date">March 31, 2026</p>
+                    <p>Automatically detect, analyze, and mitigate anomalous resource distribution among AI agents within distributed computational networks.</p>
+                    <a href="https://patents.justia.com/patent/12592897" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,587,490</p>
+                    <h3>Managing Digital Artifact Access Using Agentic AI Models</h3>
+                    <p class="patent-date">March 24, 2026</p>
+                    <p>Automatically authorize, audit, and manage usage of protected digital content via agentic AI models with cryptographic signatures and audit trails.</p>
+                    <a href="https://patents.justia.com/patent/12587490" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,587,489</p>
+                    <h3>Knowledge Registry for Agentic AI Models Stored on a Distributed Network</h3>
+                    <p class="patent-date">March 24, 2026</p>
+                    <p>Automatically register, monitor, and authenticate distributed AI agents using a distributed ledger-based agent knowledge registry.</p>
+                    <a href="https://patents.justia.com/patent/12587489" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <!-- 2025 Patents -->
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,517,724</p>
+                    <h3>Managing Operational Resilience of System Assets Using an AI Model</h3>
+                    <p class="patent-date">January 6, 2026</p>
+                    <p>Uses AI models to identify gaps in system assets and generate actions to ensure observed assets meet identified criteria.</p>
+                    <a href="https://patents.justia.com/patent/12517724" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,483,471</p>
+                    <h3>Automatically Updating Communication Maps for Network Validation</h3>
+                    <p class="patent-date">November 25, 2025</p>
+                    <p>Dynamically monitors document repositories and updates communication maps to detect and remediate validation failures for network operations.</p>
+                    <a href="https://patents.justia.com/patent/12483471" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,450,494</p>
+                    <h3>Validating Autonomous AI Agents Using Generative AI</h3>
+                    <p class="patent-date">October 21, 2025</p>
+                    <p>Evaluates autonomous agents by identifying gaps in proposed actions and modifying them using generative AI models.</p>
+                    <a href="https://patents.justia.com/patent/12450494" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,361,335</p>
+                    <h3>Validating Vector Constraints of Outputs Generated by ML Models</h3>
+                    <p class="patent-date">July 15, 2025</p>
+                    <p>Employs specialized models to identify non-compliance with vector constraints within AI-generated responses.</p>
+                    <a href="https://patents.justia.com/patent/12361335" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,299,140</p>
+                    <h3>Dynamic Multi-Model Monitoring and Validation for AI Models</h3>
+                    <p class="patent-date">May 13, 2025</p>
+                    <p>Multi-model superstructure that dynamically routes artifacts for evaluation and generates corrective actions when metrics are not met.</p>
+                    <a href="https://patents.justia.com/patent/12299140" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,198,030</p>
+                    <h3>Validating Vector Constraints for ML Model Outputs</h3>
+                    <p class="patent-date">January 14, 2025</p>
+                    <p>Real-time detection and automatic correction of bias, harmful content, and IP violations in AI outputs.</p>
+                    <a href="https://patents.justia.com/patent/12198030" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <!-- Earlier Patents -->
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,184,480</p>
+                    <h3>Detecting and Mitigating Network Operation Validation Anomalies</h3>
+                    <p class="patent-date">December 31, 2024</p>
+                    <p>Dynamic monitoring, evaluation, and mitigation of detected anomalies in real-time for conglomerate-application ecosystems.</p>
+                    <a href="https://patents.justia.com/patent/12184480" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-12,111,754</p>
+                    <h3>Dynamically Validating AI Applications for Compliance</h3>
+                    <p class="patent-date">October 8, 2024</p>
+                    <p>Constructs test cases with prompts and expected outcomes to evaluate AI application compliance with guidelines.</p>
+                    <a href="https://patents.justia.com/patent/12111754" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-11,924,027</p>
+                    <h3>Detecting Network Operation Validation Anomalies</h3>
+                    <p class="patent-date">March 5, 2024</p>
+                    <p>Reduces wasted computational resources by detecting and preventing invalid network operations from propagating.</p>
+                    <a href="https://patents.justia.com/patent/11924027" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="patent-card">
+                    <span class="patent-badge">Granted</span>
+                    <p class="patent-number">US-11,847,046</p>
+                    <h3>Unified Testing Platform: Functionality, Resiliency, Chaos & Performance</h3>
+                    <p class="patent-date">December 19, 2023</p>
+                    <p>A single network system providing functionality, resiliency, chaos, and performance testing for cloud applications.</p>
+                    <a href="https://patents.justia.com/patent/11847046" target="_blank" class="patent-link">View Patent <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://patents.justia.com/inventor/vishal-mysore" target="_blank" class="btn btn-primary" style="background: var(--primary); color: white;">
+                    <i class="fas fa-scroll"></i> View All Patents on Justia
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Open Source Projects</h2>
+                <p>Building bridges between AI and enterprise Java ecosystems</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card featured">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-robot"></i></div>
+                        <div class="project-stats">
+                            <span class="project-stat"><i class="fas fa-star"></i> 182</span>
+                            <span class="project-stat"><i class="fas fa-code-branch"></i> Java</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Tools4AI</h3>
+                        <p>100% Java-based Agentic AI Framework for building autonomous agents. Converts natural language to HTTP REST calls, Java methods, shell scripts, and Swagger API calls. Supports multi-AI voting, hallucination detection, and action risk assessment.</p>
+                        <div class="project-tags">
+                            <span class="tag">Gemini</span>
+                            <span class="tag">OpenAI</span>
+                            <span class="tag">Anthropic</span>
+                            <span class="tag">Selenium AI</span>
+                        </div>
+                        <a href="https://github.com/vishalmysore/Tools4AI" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-network-wired"></i></div>
+                        <div class="project-stats">
+                            <span class="project-stat"><i class="fas fa-star"></i> 103</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>a2ajava</h3>
+                        <p>Pure Java implementation of Google's A2A (Agent-to-Agent) protocol for Spring Boot. Agents automatically exposed as MCP tools.</p>
+                        <div class="project-tags">
+                            <span class="tag">A2A Protocol</span>
+                            <span class="tag">Spring Boot</span>
+                        </div>
+                        <a href="https://github.com/vishalmysore/a2ajava" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-microchip"></i></div>
+                        <div class="project-stats">
+                            <span class="project-stat"><i class="fas fa-star"></i> 78</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>choturobo</h3>
+                        <p>Arduino/ESP32 robotics integration with Claude AI via MCP protocol. Enables AI-driven hardware control.</p>
+                        <div class="project-tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">Claude MCP</span>
+                        </div>
+                        <a href="https://github.com/vishalmysore/choturobo" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="project-stats">
+                            <span class="project-stat"><i class="fas fa-star"></i> 36</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>bmad-federated-knowledge</h3>
+                        <p>Git-based federated knowledge system extension for BMAD-METHOD.</p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Knowledge Graphs</span>
+                        </div>
+                        <a href="https://github.com/vishalmysore/bmad-federated-knowledge" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-database"></i></div>
+                        <div class="project-stats">
+                            <span class="project-stat"><i class="fas fa-star"></i> 15</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>neo4j-protege-plugin</h3>
+                        <p>Neo4J plugin for Protege ontology editor with NLP query support.</p>
+                        <div class="project-tags">
+                            <span class="tag">Neo4j</span>
+                            <span class="tag">Ontology</span>
+                        </div>
+                        <a href="https://github.com/vishalmysore/neo4j-protege-plugin" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-memory"></i></div>
+                        <div class="project-stats">
+                            <span class="project-stat"><i class="fas fa-star"></i> 10</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>agenticmemory</h3>
+                        <p>Agentic Memory RAG system based on Apache Lucene for Java applications.</p>
+                        <div class="project-tags">
+                            <span class="tag">RAG</span>
+                            <span class="tag">Lucene</span>
+                        </div>
+                        <a href="https://github.com/vishalmysore/agenticmemory" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles" class="articles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Articles & Publications</h2>
+                <p>Sharing insights on AI, LLMs, and enterprise integration</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="articles-grid">
+                <div class="article-card">
+                    <div class="article-platform">
+                        <i class="fab fa-medium"></i> Medium
+                    </div>
+                    <h3>Why LLMs Fail and How Knowledge Graphs Save Them: The Complete Guide</h3>
+                    <p>A comprehensive guide to integrating knowledge graphs with LLMs for improved accuracy and grounding.</p>
+                    <a href="https://medium.com/@visrow" target="_blank" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-platform">
+                        <i class="fab fa-medium"></i> Medium
+                    </div>
+                    <h3>Agentic AI Business Rules Engine for Java</h3>
+                    <p>Build your own LLM-powered alternative to Drools with this comprehensive Java guide.</p>
+                    <a href="https://medium.com/@visrow" target="_blank" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-platform">
+                        <i class="fab fa-medium"></i> Medium
+                    </div>
+                    <h3>Knowledge Graphs as MCP Tools: The New Bridge for LLM Grounding</h3>
+                    <p>Exploring the intersection of knowledge graphs and Model Context Protocol for enhanced AI capabilities.</p>
+                    <a href="https://medium.com/@visrow" target="_blank" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-platform">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </div>
+                    <h3>Your First LLM Experiment</h3>
+                    <p>Step-by-step guide to writing your first AI code with TinyLlama and understanding LLM fundamentals.</p>
+                    <a href="https://www.linkedin.com/pulse/your-first-llm-experiment-vishal-mysore-j55ec" target="_blank" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-platform">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </div>
+                    <h3>The Java Developer's Guide to Agentic AI Integration</h3>
+                    <p>Practical patterns for integrating autonomous AI agents into enterprise Java applications.</p>
+                    <a href="https://linkedin.com/in/vishalrow" target="_blank" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-platform">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </div>
+                    <h3>Model Quantization: Running LLMs on Consumer Hardware</h3>
+                    <p>Guide to quantizing models and optimizing performance for consumer-grade CPUs.</p>
+                    <a href="https://www.linkedin.com/pulse/how-shrink-your-model-guide-quantization-vishal-mysore-971cc" target="_blank" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://medium.com/@visrow" target="_blank" class="btn btn-primary" style="background: var(--accent); color: white;">
+                    <i class="fab fa-medium"></i> View All Articles on Medium
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p>Interested in collaboration, speaking opportunities, or discussing AI innovations?</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/vishalrow" target="_blank" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/vishalmysore" target="_blank" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://medium.com/@visrow" target="_blank" class="social-link" title="Medium">
+                    <i class="fab fa-medium-m"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Vishal Row Mysore. All Rights Reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 Vishal Mysore. All Rights Reserved.</p>
+        </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
