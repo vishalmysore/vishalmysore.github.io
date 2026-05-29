@@ -1246,6 +1246,65 @@
     </section>
 
 
+    <!-- Chat with Me Section -->
+    <section id="chat" style="padding: 100px 0; background: var(--bg-alt);">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 16px;">
+                    Chat with Me
+                </h2>
+                <p style="color: var(--text-light); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                    Ask me anything about my background, patents, or expertise. The AI runs entirely in your browser — no data leaves your device.
+                </p>
+            </div>
+
+            <div style="max-width: 780px; margin: 0 auto; background: var(--bg); border-radius: 16px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+                <!-- Model selector -->
+                <div id="chatControls" style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:16px;">
+                    <select id="modelSelect" style="flex:1; min-width:200px; padding:10px 12px; border:1px solid var(--border); border-radius:8px; font-size:0.95rem; font-family:inherit; color:var(--text); background:var(--bg);">
+                        <option value="Llama-3.2-1B-Instruct-q4f32_1-MLC">Llama 3.2 1B (~0.9 GB) — fastest</option>
+                        <option value="Qwen2.5-1.5B-Instruct-q4f16_1-MLC">Qwen 2.5 1.5B (~1.1 GB) — fast</option>
+                        <option value="gemma-2-2b-it-q4f16_1-MLC">Gemma 2 2B (~1.5 GB) — balanced</option>
+                        <option value="Phi-3.5-mini-instruct-q4f16_1-MLC">Phi-3.5 Mini (~2.2 GB) — best quality</option>
+                    </select>
+                    <button id="loadModelBtn" style="padding:10px 22px; background:var(--accent); color:#fff; border:none; border-radius:8px; font-size:0.95rem; font-family:inherit; font-weight:600; cursor:pointer; white-space:nowrap;">
+                        Load Model
+                    </button>
+                </div>
+
+                <!-- Progress bar -->
+                <div id="progressWrap" style="display:none; height:6px; background:var(--border); border-radius:4px; margin-bottom:12px; overflow:hidden;">
+                    <div id="progressFill" style="height:100%; background:var(--accent); border-radius:4px; transition:width 0.3s ease; width:0%;"></div>
+                </div>
+
+                <!-- Status -->
+                <div id="chatStatus" style="font-size:0.88rem; color:var(--text-light); margin-bottom:14px; min-height:1.4em;">
+                    Select a model and click Load Model. Requires Chrome 113+ with WebGPU.
+                </div>
+
+                <!-- Chat window -->
+                <div id="chatWindow" style="border:1px solid var(--border); border-radius:10px; padding:16px; min-height:260px; max-height:420px; overflow-y:auto; background:var(--bg-alt); margin-bottom:12px; display:flex; flex-direction:column; gap:12px;">
+                    <div id="chatPlaceholder" style="color:var(--text-light); font-style:italic; font-size:0.95rem; text-align:center; margin:auto;">
+                        Load a model above, then ask me anything...
+                    </div>
+                </div>
+
+                <!-- Input row -->
+                <div style="display:flex; gap:10px; align-items:flex-end;">
+                    <textarea id="chatInput" rows="2" placeholder="Ask about my experience, patents, skills..." disabled
+                        style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; font-size:0.95rem; font-family:inherit; resize:none; line-height:1.5; color:var(--text);"></textarea>
+                    <button id="sendBtn" disabled
+                        style="padding:10px 20px; background:var(--accent); color:#fff; border:none; border-radius:8px; font-size:0.95rem; font-family:inherit; font-weight:600; cursor:pointer; white-space:nowrap;">
+                        Send
+                    </button>
+                </div>
+                <p style="font-size:0.82rem; color:var(--text-light); margin-top:10px;">
+                    Runs locally via WebLLM + WebGPU. First load downloads model weights (~1–2 GB, cached in browser after).
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -1296,6 +1355,196 @@
                 nav.style.boxShadow = 'none';
             }
         });
+    </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./coi-serviceworker.js').catch(() => {})
+        }
+    </script>
+
+    <script type="module">
+const SYSTEM_PROMPT = `You are a helpful assistant representing Vishal Mysore's professional profile. Answer questions about Vishal based only on the following biodata. Be concise, friendly, and professional.
+
+=== BIODATA ===
+
+Name: Vishal Mysore (also known as Vishal Row Mysore)
+Current Role: Director at Citi
+Experience: 20+ years in software development and leadership
+
+ABOUT:
+Vishal has over 20 years of experience in software development and leadership across financial services and technology. He specializes in microservices, AI, DevOps, and chaos engineering.
+
+As Director at Citi, he leads engineering and validation of AI-powered cloud-native platforms for low-latency financial applications using Kubernetes/OpenShift. He spearheads Zero Touch Deployments, Auto Checkouts, and advanced monitoring solutions. Previously as Senior Vice President at Citi, he led globally distributed teams in chaos engineering, containerization, cloud migration, and DevOps automation. He has contributed to stock record systems, ML prototypes, and online banking apps for CIBC.
+
+He is passionate about open-source, mentoring professionals, and exploring AI/ML trends.
+LinkedIn: linkedin.com/in/vishalrow | GitHub: github.com/vishalmysore | Medium: medium.com/@visrow/
+
+PATENTS (7 total):
+1. Machine Learning System for Predicting Cascading Failures in Cloud Applications — US-20250053501-A1 (Feb 13, 2025): Uses ML to predict cascading failures in cloud microservices, analyzing dependencies and historical data to identify failure points and recommend code revisions.
+2. Predicting Cascading Failures and Generating Chaos Testing Scenarios — 20250053499 (Feb 13, 2025): Generates application dependency models, identifies failure points, creates and applies chaos testing scenarios, generates code revision recommendations.
+3. Validating Vector Constraints of Outputs Generated by Machine Learning Models — US-12198030-B1 (Jan 14, 2025): Real-time detection and correction of bias, harmful content, and IP violations in AI model outputs using dynamic regulation alignment.
+4. Application Functionality, Resiliency, Chaos, and Performance Testing in a Single Platform — 11,847,046 (Dec 19, 2023): Unified network system for functional, performance, resiliency, and chaos testing of cloud applications.
+5. Detecting Network Operation Validation Anomalies in Conglomerate-Application Ecosystems — 11,924,027 (Mar 5, 2024): Reduces wasted resources by detecting validation anomalies and preventing invalid operations from propagating.
+6. Dynamically Validating AI Applications for Compliance — 12,111,754 (Oct 8, 2024): Evaluates AI application compliance with guidelines by constructing test cases with prompts, expected outcomes, and generating compliance indicators.
+7. Detecting and Mitigating Network Operation Validation Anomalies (Improved) — 12,184,480 (Dec 31, 2024): Improved anomaly detection using communication maps, validation status, and corrective actions.
+
+KEY SKILLS: Agentic AI, Microservices, DevOps, Chaos Engineering, Kubernetes, OpenShift, Cloud-Native, Containerization, Zero Touch Deployments, Financial Systems, Team Leadership, Digital Transformation, Machine Learning
+
+=== END BIODATA ===
+
+If asked something not in this biodata, say you don't have that information and suggest checking Vishal's LinkedIn or GitHub.`
+
+let worker = null
+let modelStatus = 'idle'
+let genCounter = 0
+let pendingResolve = null
+let pendingReject = null
+const chatHistory = []
+
+function ensureWorker() {
+    if (worker) return
+    worker = new Worker(new URL('./chat-worker.js', import.meta.url), { type: 'module' })
+    worker.onmessage = (e) => {
+        const msg = e.data
+        switch (msg.status) {
+            case 'device_detected':
+                setStatus('WebGPU detected. Downloading model weights...')
+                showProgress(5)
+                break
+            case 'phase':
+                if (msg.phase === 'compile') {
+                    setStatus('Compiling shaders — ~1–5 min first time, cached after.')
+                    showProgress(80)
+                } else {
+                    setStatus('Downloading model...')
+                    showProgress(5)
+                }
+                break
+            case 'downloading':
+                setStatus(`Downloading: ${msg.file}`)
+                showProgress(msg.progress ?? 0)
+                break
+            case 'ready':
+                modelStatus = 'ready'
+                hideProgress()
+                setStatus(`✓ Model ready — ${msg.modelId}`, '#27ae60')
+                document.getElementById('chatInput').disabled = false
+                document.getElementById('sendBtn').disabled = false
+                document.getElementById('loadModelBtn').disabled = false
+                if (pendingResolve) { pendingResolve(msg.modelId); pendingResolve = pendingReject = null }
+                break
+            case 'success':
+                if (pendingResolve) { pendingResolve(msg.generatedText); pendingResolve = pendingReject = null }
+                break
+            case 'error':
+                modelStatus = 'error'
+                hideProgress()
+                setStatus(`Error: ${msg.error}`, '#c0392b')
+                document.getElementById('loadModelBtn').disabled = false
+                if (pendingReject) { pendingReject(new Error(msg.error)); pendingResolve = pendingReject = null }
+                break
+        }
+    }
+    worker.onerror = (e) => {
+        modelStatus = 'error'
+        hideProgress()
+        setStatus(`Worker error: ${e.message}`, '#c0392b')
+        document.getElementById('loadModelBtn').disabled = false
+        if (pendingReject) { pendingReject(new Error(e.message)); pendingResolve = pendingReject = null }
+    }
+}
+
+function setStatus(text, color) {
+    const el = document.getElementById('chatStatus')
+    el.textContent = text
+    el.style.color = color || 'var(--text-light)'
+}
+
+function showProgress(pct) {
+    document.getElementById('progressWrap').style.display = 'block'
+    document.getElementById('progressFill').style.width = pct + '%'
+}
+
+function hideProgress() {
+    document.getElementById('progressWrap').style.display = 'none'
+}
+
+document.getElementById('loadModelBtn').addEventListener('click', () => {
+    const modelId = document.getElementById('modelSelect').value
+    ensureWorker()
+    modelStatus = 'loading'
+    document.getElementById('loadModelBtn').disabled = true
+    document.getElementById('chatInput').disabled = true
+    document.getElementById('sendBtn').disabled = true
+    setStatus('Initializing WebGPU...')
+    showProgress(2)
+    genCounter++
+    new Promise((resolve, reject) => {
+        pendingResolve = resolve
+        pendingReject = reject
+        worker.postMessage({ action: 'load', modelId, gen: genCounter })
+    }).catch(() => {})
+})
+
+function addBubble(role, text, thinking = false) {
+    const placeholder = document.getElementById('chatPlaceholder')
+    if (placeholder) placeholder.remove()
+    const win = document.getElementById('chatWindow')
+    const div = document.createElement('div')
+    const isUser = role === 'user'
+    div.style.cssText = `
+        max-width: 82%; padding: 10px 14px; border-radius: 10px; line-height: 1.6;
+        font-size: 0.95rem; word-break: break-word; align-self: ${isUser ? 'flex-end' : 'flex-start'};
+        background: ${isUser ? 'var(--accent)' : 'var(--bg)'};
+        color: ${isUser ? '#fff' : 'var(--text)'};
+        border: ${isUser ? 'none' : '1px solid var(--border)'};
+        font-style: ${thinking ? 'italic' : 'normal'};
+        opacity: ${thinking ? '0.7' : '1'};
+    `
+    div.textContent = text
+    win.appendChild(div)
+    win.scrollTop = win.scrollHeight
+    return div
+}
+
+async function sendMessage() {
+    const input = document.getElementById('chatInput')
+    const text = input.value.trim()
+    if (!text || modelStatus !== 'ready') return
+    input.value = ''
+    input.disabled = true
+    document.getElementById('sendBtn').disabled = true
+    addBubble('user', text)
+    chatHistory.push({ role: 'user', content: text })
+    const thinkingBubble = addBubble('assistant', 'Thinking...', true)
+    try {
+        genCounter++
+        const answer = await new Promise((resolve, reject) => {
+            pendingResolve = resolve
+            pendingReject = reject
+            worker.postMessage({ action: 'generate', messages: chatHistory.slice(-10), systemPrompt: SYSTEM_PROMPT, gen: genCounter })
+        })
+        thinkingBubble.style.fontStyle = 'normal'
+        thinkingBubble.style.opacity = '1'
+        thinkingBubble.textContent = answer
+        chatHistory.push({ role: 'assistant', content: answer })
+    } catch (err) {
+        thinkingBubble.style.fontStyle = 'normal'
+        thinkingBubble.style.color = '#c0392b'
+        thinkingBubble.textContent = `Error: ${err.message}`
+    } finally {
+        input.disabled = false
+        document.getElementById('sendBtn').disabled = false
+        input.focus()
+        document.getElementById('chatWindow').scrollTop = document.getElementById('chatWindow').scrollHeight
+    }
+}
+
+document.getElementById('sendBtn').addEventListener('click', sendMessage)
+document.getElementById('chatInput').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage() }
+})
     </script>
 </body>
 </html>
