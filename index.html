@@ -1359,8 +1359,15 @@
     </script>
 
     <script>
+        // This site previously registered coi-serviceworker.js at the root
+        // scope ("/"), so it intercepted requests for EVERY project on
+        // vishalmysore.github.io (DevPal, agentHerd, ...). It is not needed:
+        // WebLLM runs purely on WebGPU and requires no cross-origin isolation /
+        // SharedArrayBuffer. Unregister it so existing visitors get cleaned up.
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./coi-serviceworker.js').catch(() => {})
+            navigator.serviceWorker.getRegistrations()
+                .then((regs) => regs.forEach((r) => r.unregister()))
+                .catch(() => {})
         }
     </script>
 
